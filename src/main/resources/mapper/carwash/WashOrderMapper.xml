@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.karl.onlinetaxi.carwash.mapper.WashOrderMapper">
+    <resultMap id="WashOrderEntity" type="com.karl.onlinetaxi.carwash.entity.WashOrder">
+        <result column="oid" property="oid"></result>
+        <result column="order_number" property="orderNumber"></result>
+        <result column="user_phone" property="userPhone"></result>
+        <result column="car_type" property="carType"></result>
+        <result column="car_picture" property="catPicture"></result>
+        <result column="wash_type" property="washType"></result>
+        <result column="created_user" property="createdUser"></result>
+        <result column="created_time" property="createdTime"></result>
+        <result column="modified_user" property="modifiedUser"></result>
+        <result column="modified_time" property="modifiedTime"></result>
+    </resultMap>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="oid">
+        insert into w_wash_order (
+            oid, uid, sid, order_number, user_phone, username, car_type, car_picture,
+            price, state, worker, wash_type, appointment, remarks,
+            created_user, created_time, modified_user, modified_time
+        ) values (
+            #{oid}, #{uid}, #{sid}, #{orderNumber}, #{userPhone}, #{username}, #{carType},
+            #{carPicture}, #{price}, #{state}, #{worker}, #{washType}, #{appointment},
+            #{remarks}, #{createdUser}, #{createdTime}, #{modifiedUser}, #{modifiedTime}
+        )
+    </insert>
+
+    <select id="listWashOrders" resultMap="WashOrderEntity">
+        select * from w_wash_order;
+    </select>
+
+</mapper>
