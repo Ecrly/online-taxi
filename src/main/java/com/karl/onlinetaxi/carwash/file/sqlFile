@@ -1,0 +1,43 @@
+create table w_storefront
+(
+    sid           int auto_increment
+        primary key,
+    uid           int                      not null comment '所属用户Id',
+    shop_name     varchar(255)             null comment '店铺名',
+    description   varchar(255)             null comment '店铺介绍',
+    address       varchar(255)             null comment '店铺地址',
+    picture       varchar(255)             null comment '店铺主图',
+    longitude     double(10, 2)            null comment '经度',
+    latitude      double(10, 2)            null comment '纬度',
+    state         varchar(255)             null comment '店铺状态',
+    created_user  varchar(20) charset utf8 null comment '日志-创建人',
+    created_time  datetime                 null comment '日志-创建时间',
+    modified_user varchar(20) charset utf8 null comment '日志-最后修改执行人',
+    modified_time datetime                 null comment '日志-最后修改时间'
+);
+
+drop table w_wash_order;
+create table w_wash_order
+(
+    oid           int auto_increment
+        primary key,
+    uid           int                      not null comment '下单用户Id',
+    sid           int                      not null comment '下单门店Id',
+    order_number  varchar(255)             null comment '订单号',
+    user_phone    varchar(255)             null comment '联系电话',
+    username      varchar(255)             null comment '联系人',
+    car_type      varchar(255)             null comment '车型',
+    car_picture   varchar(255)             null comment '车的照片',
+    price         double(10, 2)            null comment '订单价格',
+    state         varchar(255)             null comment '订单状态',
+    worker        varchar(255)             null comment '洗车工',
+    wash_type     varchar(255)             null comment '洗车类型：立即or预定',
+    appointment   datetime                 null comment '预定时间',
+    remarks       text                     null comment '备注',
+    created_user  varchar(20) charset utf8 null comment '日志-创建人',
+    created_time  datetime                 null comment '日志-创建时间',
+    modified_user varchar(20) charset utf8 null comment '日志-最后修改执行人',
+    modified_time datetime                 null comment '日志-最后修改时间'
+);
+
+

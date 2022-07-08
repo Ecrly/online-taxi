@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.karl.onlinetaxi.carwash.mapper.StorefrontMapper">
+
+    <resultMap id="StorefrontEntity" type="com.karl.onlinetaxi.carwash.entity.Storefront">
+        <result column="sid" property="sid"></result>
+        <result column="shop_name" property="shopName"></result>
+        <result column="created_user" property="createdUser"></result>
+        <result column="created_time" property="createdTime"></result>
+        <result column="modified_user" property="modifiedUser"></result>
+        <result column="modified_time" property="modifiedTime"></result>
+    </resultMap>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="sid">
+        insert into w_storefront (
+            sid, uid, shop_name, description, address, picture, longitude, latitude, state,
+            created_user, created_time, modified_user, modified_time
+        ) values (
+            #{sid}, #{uid}, #{shopName}, #{description}, #{address}, #{picture}, #{longitude},
+            #{latitude}, #{state}, #{createdUser}, #{createdTime}, #{modifiedUser}, #{modifiedTime}
+        )
+    </insert>
+    
+    <select id="findStorefrontBySid" resultMap="StorefrontEntity">
+        select * from w_storefront where sid = #{sid}
+    </select>
+
+    <select id="listStorefronts" resultMap="StorefrontEntity">
+        select * from w_storefront;
+    </select>
+
+</mapper>
