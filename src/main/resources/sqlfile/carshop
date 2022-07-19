@@ -1,0 +1,22 @@
+-- auto-generated definition
+create table c_carshop
+(
+    sid                  int auto_increment
+        primary key,
+    uid                 int                         not null comment '商户id',
+    shop_name           varchar(255)                null comment '店铺名',
+    description         varchar(255)                null comment '店铺描述',
+    address             varchar(255)                null comment '店铺地址',
+    picture             varchar(255)                null comment '店铺照片',
+    license             varchar(255)                null comment '店铺营业执照',
+    longitude           decimal(10, 7)              null comment '经度',
+    latitude            decimal(10, 7)              null comment '纬度',
+    state  	       varchar(255)                null comment '店铺状态',
+    shop_score          decimal(10, 2)              null comment '店铺评分',
+    created_user        varchar(20)                 null comment '日志-创建人',
+    created_time        datetime                    null comment '日志-创建时间',
+    modified_user       varchar(20)                 null comment '日志-最后修改执行人',
+    modified_time       datetime                    null comment '日志-最后修改时间'
+)
+    comment '汽车商城表' collate = utf8mb4_general_ci;
+

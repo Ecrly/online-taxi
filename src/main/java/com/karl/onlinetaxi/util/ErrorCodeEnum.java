@@ -24,7 +24,9 @@ public enum ErrorCodeEnum {
     USER_NOT_FOUND(1000, "用户不存在"),
     PASSWORD_ERROR(1001, "密码错误"),
     REGISTER_ERROR(1002, "注册时发生异常"),
-    USERNAME_DUPLICATED(1002, "用户名被占用"),
+    USERNAME_DUPLICATED(1003, "用户名被占用"),
+    USER_PHONE_NOT_REGISTERED(1004, "手机号未注册"),
+    USER_PHONE_DUPLICATED(1005, "手机号已经被注册"),
 
     /**
      * 商城中心业务异常
@@ -37,8 +39,6 @@ public enum ErrorCodeEnum {
     STOREFRONT_INSERT_ERROR(3000, "门店创建失败"),
     STOREFRONT_NOT_FOUND_ERROR(3001, "门店不存在"),
     WASHORDER_INSERT_ERROR(3002, "洗车订单创建失败")
-
-
     ;
 
     private Integer state;

@@ -17,4 +17,6 @@ public interface UserMapper {
      * @return 如果找到，则返回，没找到返回NULL
      */
     User findByUsername(String username);
+
+    User findByUserPhone(String userPhone);
 }

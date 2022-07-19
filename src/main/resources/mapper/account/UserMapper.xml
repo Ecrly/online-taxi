@@ -26,4 +26,8 @@
     <select id="findByUsername" resultMap="UserEntityMap">
         SELECT * FROM c_user WHERE user_name = #{userName}
     </select>
+
+    <select id="findByUserPhone" resultMap="UserEntityMap">
+        SELECT * FROM c_user WHERE user_phone = #{userPhone}
+    </select>
 </mapper>

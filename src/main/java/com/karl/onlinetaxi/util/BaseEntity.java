@@ -1,14 +1,21 @@
 package com.karl.onlinetaxi.util;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 /** 作为实体类的基类*/
 public class BaseEntity implements Serializable {
+
+    @ApiModelProperty(hidden = true)
     private String createdUser;
+    @ApiModelProperty(hidden = true)
     private Date createdTime;
+    @ApiModelProperty(hidden = true)
     private String modifiedUser;
+    @ApiModelProperty(hidden = true)
     private Date modifiedTime;
 
     public String getCreatedUser() {
