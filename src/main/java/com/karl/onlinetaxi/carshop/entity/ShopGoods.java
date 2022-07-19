@@ -1,6 +1,7 @@
 package com.karl.onlinetaxi.carshop.entity;
 
 import com.karl.onlinetaxi.util.BaseEntity;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -15,11 +16,13 @@ public class ShopGoods extends BaseEntity implements Serializable {
     /**
      * 商品名称
      */
+    @ApiModelProperty("商品名称")
     private String goodsName;
 
     /**
      * 主图（一个url地址）
      */
+    @ApiModelProperty("商品图片")
     private String mainPicture;
 
     /**
@@ -30,11 +33,13 @@ public class ShopGoods extends BaseEntity implements Serializable {
     /**
      * 商品类别（此处是否关联有待考虑）
      */
+    @ApiModelProperty("商品种类")
     private String goodsType;
 
     /**
      * 商品价格
      */
+    @ApiModelProperty("商品价格")
     private Double goodsPrice;
 
     /**
@@ -45,6 +50,8 @@ public class ShopGoods extends BaseEntity implements Serializable {
     /**
      * 商品库存
      */
+
+    @ApiModelProperty("商品库存")
     private Integer stock;
 
     /**
@@ -60,6 +67,8 @@ public class ShopGoods extends BaseEntity implements Serializable {
     /**
      * 商品详情
      */
+
+    @ApiModelProperty("商品详情")
     private String details;
 
     public Integer getGid() {

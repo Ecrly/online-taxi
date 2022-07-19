@@ -31,7 +31,7 @@ public interface ShopGoodsMapper {
      * 查询所有商品（此处后续需要增加分页功能）
      * @return 商品列表
      */
-    List<ShopGoods> listGoods();
+    List<ShopGoods> listShopGoods();
 
     /**
      * 根据gid查询商品详细信息

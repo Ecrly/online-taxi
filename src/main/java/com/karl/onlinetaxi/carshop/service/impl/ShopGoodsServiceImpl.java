@@ -43,8 +43,8 @@ public class ShopGoodsServiceImpl implements IShopGoodsService {
     }
 
     @Override
-    public List<ShopGoods> listGoods() {
-        List<ShopGoods> goodsList = goodsMapper.listGoods();
+    public List<ShopGoods> listShopGoods() {
+        List<ShopGoods> goodsList = goodsMapper.listShopGoods();
         if (goodsList == null) {
             throw new SelectException(ErrorCodeEnum.SELECT_ERROR);
         }

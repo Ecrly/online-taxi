@@ -28,7 +28,7 @@ public interface IShopGoodsService {
      * 列举所有商品
      * @return 商品列表
      */
-    List<ShopGoods> listGoods();
+    List<ShopGoods> listShopGoods();
 
     /**
      * 查询某商品详细信息

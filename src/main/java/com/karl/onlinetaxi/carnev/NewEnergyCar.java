@@ -6,5 +6,7 @@ import java.io.Serializable;
 
 public class NewEnergyCar extends BaseEntity implements Serializable {
 
+    private Integer nid;
+
 
 }
