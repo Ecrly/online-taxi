@@ -3,9 +3,7 @@ package com.karl.onlinetaxi.account.service.impl;
 import com.karl.onlinetaxi.account.entity.User;
 import com.karl.onlinetaxi.account.mapper.UserMapper;
 import com.karl.onlinetaxi.account.service.IUserService;
-import com.karl.onlinetaxi.account.service.ex.PasswordNotMatchException;
-import com.karl.onlinetaxi.account.service.ex.UserNotFoundException;
-import com.karl.onlinetaxi.account.service.ex.UsernameDuplicatedException;
+import com.karl.onlinetaxi.account.service.ex.*;
 import com.karl.onlinetaxi.util.ErrorCodeEnum;
 import com.karl.onlinetaxi.util.InsertException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +75,60 @@ public class UserServiceImpl implements IUserService {
         }
 
         return userMapper.findByUsername(username);
+    }
+
+    @Override
+    public void regByUserPhone(User user) {
+        //通过user参数来获取传递过来的username
+        String userPhone = user.getUserPhone();
+        //调用findByUsername(username) 判断用户是否被注册过
+        User result = userMapper.findByUserPhone(userPhone);
+
+        //判断结果是否为NULL
+        if(result != null){
+            //抛出异常
+            throw  new UserPhoneDuplicatedException(ErrorCodeEnum.USER_PHONE_DUPLICATED);
+        }
+
+        //密码加密处理的实现:md5算法的形式
+        String oldPassword = user.getPassword();
+        //获取盐值(随机生成)
+        String salt = UUID.randomUUID().toString().toUpperCase();
+        user.setSalt(salt);
+        String md5Password = getMD5Password(oldPassword,salt);
+        user.setPassword(md5Password);
+
+        //补全数据：日志字段信息
+        user.setCreatedUser(user.getUserName());
+        user.setModifiedUser(user.getUserName());
+        Date date = new Date();
+        user.setCreatedTime(date);
+        user.setModifiedTime(date);
+
+        //执行业务注册功能的实现(rows == 1)
+        Integer rows = userMapper.insert(user);
+        if(rows != 1){
+            throw new InsertException(ErrorCodeEnum.REGISTER_ERROR);
+        }
+    }
+
+    @Override
+    public User loginByUserPhone(String userPhone, String password) {
+        User result = userMapper.findByUsername(userPhone);
+
+        if(result == null){
+            throw new UserPhoneNotRegisteredException(ErrorCodeEnum.USER_PHONE_NOT_REGISTERED);
+        }
+
+        String oldPassword = result.getPassword();
+        String salt = result.getSalt();
+        String newMd5Password = getMD5Password(password,salt);
+
+        if(!oldPassword.equals(newMd5Password)){
+            throw new PasswordNotMatchException(ErrorCodeEnum.PASSWORD_ERROR);
+        }
+
+        return userMapper.findByUsername(userPhone);
     }
 
     /** 定义一个md5算法的加密处理 */

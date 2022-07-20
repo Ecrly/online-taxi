@@ -1,20 +1,43 @@
 package com.karl.onlinetaxi.account.entity;
 
 import com.karl.onlinetaxi.util.BaseEntity;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 import java.util.Objects;
 
+@ApiModel("用户信息")
 public class User extends BaseEntity implements Serializable {
+
+    @ApiModelProperty(hidden = true)
     private Integer uid;
+
+    @ApiModelProperty(hidden = true)
     private String userName;
+
+    @ApiModelProperty(hidden = true)
     private Integer sex;
+
+    @ApiModelProperty(value = "手机号", required = true)
     private String userPhone;
+
+    @ApiModelProperty(hidden = true)
     private String userEmail;
+
+    @ApiModelProperty(hidden = true)
     private String usercode;
+
+    @ApiModelProperty(value = "密码", required = true)
     private String password;
+
+    @ApiModelProperty(hidden = true)
     private String avatar;
+
+    @ApiModelProperty(hidden = true)
     private String fullName;
+
+    @ApiModelProperty(hidden = true)
     private String salt;
 
     public String getSalt() {

@@ -19,9 +19,24 @@ public class UserMapperTests {
     private UserMapper userMapper;
 
     @Test
+    public void findByUsername() {
+    }
+
+    @Test
+    public void findByUserPhone() {
+        User user = userMapper.findByUserPhone("1999");
+        if (user == null) {
+            System.out.println("fail");
+        } else {
+            System.out.println(user.toString());
+        }
+    }
+
+    @Test
     public void insert() {
         User user = new User();
-        user.setUserName("new test 01");
+        user.setUserName("phonetest01");
+        user.setUserPhone("1999");
         user.setPassword("123");
         Integer rows = userMapper.insert(user);
         if (rows == 1) {

@@ -18,5 +18,8 @@ public interface IUserService {
      */
     User login(String username,String password);
 
+    void regByUserPhone(User user);
+
+    User loginByUserPhone(String userPhone, String password);
 }
 

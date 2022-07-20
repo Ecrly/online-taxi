@@ -4,7 +4,6 @@ import com.karl.onlinetaxi.carwash.entity.WashOrder;
 import com.karl.onlinetaxi.carwash.mapper.WashOrderMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.omg.PortableServer.POAPackage.WrongAdapterHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;

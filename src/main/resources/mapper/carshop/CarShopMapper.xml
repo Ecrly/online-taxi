@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.karl.onlinetaxi.carshop.mapper.CarShopMapper">
+
+    <resultMap id="CarShopEntity" type="com.karl.onlinetaxi.carshop.entity.CarShop">
+        <result column="sid" property="sid"></result>
+        <result column="shop_name" property="shopName"></result>
+        <result column="shop_score" property="shopScore"></result>
+        <result column="start_time" property="startTime"></result>
+        <result column="end_time" property="endTime"></result>
+        <result column="created_user" property="createdUser"></result>
+        <result column="created_time" property="createdTime"></result>
+        <result column="modified_user" property="modifiedUser"></result>
+        <result column="modified_time" property="modifiedTime"></result>
+    </resultMap>
+
+    <select id="listCarShops" resultMap="CarShopEntity">
+        select * from c_carshop;
+    </select>
+
+</mapper>
