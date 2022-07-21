@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.karl.onlinetaxi.carnev.mapper.NewEnergyCarMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.karl.onlinetaxi.carnev.entity.NewEnergyCar">
+        <id column="nid" property="nid" />
+        <result column="introduction" property="introduction" />
+        <result column="platform_type" property="platformType" />
+        <result column="picture" property="picture" />
+        <result column="state" property="state" />
+        <result column="price" property="price" />
+        <result column="highlight_label" property="highlightLabel" />
+        <result column="created_user" property="createdUser" />
+        <result column="created_time" property="createdTime" />
+        <result column="modified_user" property="modifiedUser" />
+        <result column="modified_time" property="modifiedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        nid, introduction, platform_type, picture, state, price, highlight_label, created_user, created_time, modified_user, modified_time
+    </sql>
+
+</mapper>
